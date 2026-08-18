@@ -1,4 +1,4 @@
-const BASE_URL = "https://api.exchangerate-api.com/v4/latest/GBP";
+const BASE_URL = "https://api.frankfurter.app/latest?from=GBP&to=PKR";
 const btn = document.querySelector("form button");
 const fromCurr = document.querySelector(".from select");
 const toCurr = document.querySelector(".to select");
@@ -12,6 +12,7 @@ btn.addEventListener("click", async (evt) => {
         amtVal = 1;
         amount.value = "1";
     }
+    msg.innerText = "Loading...";
     let response = await fetch(BASE_URL);
     let data = await response.json();
     let rate = data.rates.PKR;
